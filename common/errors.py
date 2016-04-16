@@ -1,7 +1,7 @@
-class InvalidRequestConfigurationError(Exception):
+class ServiceExplorerInvalidConfigurationError(Exception):
     def __init__(self, message):
         self.message = message
 
-class InvalidClientConfigurationError(Exception):
+class ServiceExplorerRuntimeError(Exception):
     def __init__(self, message):
         self.message = message
