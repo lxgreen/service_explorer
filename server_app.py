@@ -14,7 +14,7 @@ def main():
         # Instantiate server
         server_configuration = ServerConfiguration(args.port)
         server = ServiceExplorerServer(server_configuration)
-    except ServiceExplorerInvalidConfigurationError as error:
+    except InvalidConfigurationError as error:
         print("Error: {0}".format(error.message))
         sys.exit(1)
 

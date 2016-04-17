@@ -1,6 +1,6 @@
 import argparse
 import sys
-import json
+
 from tabulate import tabulate
 from client.data_model import ListServicesRequestData, ClientConfiguration
 from client.service_explorer_client import ServiceExplorerClient
@@ -21,7 +21,7 @@ def main():
     try:
         config = ClientConfiguration(args.ip, args.port, args.protocol)
         client = ServiceExplorerClient(config)
-    except ServiceExplorerInvalidConfigurationError as error:
+    except InvalidConfigurationError as error:
         print("Error: {0}".format(error.message))
         sys.exit(error.message)
 
@@ -45,27 +45,21 @@ def main():
                 request_data = None
                 try:
                     request_data = ListServicesRequestData(user_name, password, ip_address)
-                except ServiceExplorerInvalidConfigurationError as error:
+                except InvalidConfigurationError as error:
                     print("Error: {0}".format(error.message))
 
                 if request_data:
-                    response = None
+                    services = None
                     try:
-                        response = client.list_services(request_data)
+                        services = client.list_services(request_data)
                     except ServiceExplorerRuntimeError as error:
                         print("Error: {0}".format(error.message))
 
-                    if response and response.status_code == 200 and response.text != '':
-                        services = json.loads(response.text.encode(sys.stdout.encoding, errors='replace'))
-                        try:
-                            print tabulate(services, headers={"caption": "SERVICE CAPTION", "start_mode": "START MODE",
-                                                          "state": "STATE"})
-                        except UnicodeEncodeError:
-                            print "The response encoding is not supported"
-
-                    else:
-                        print 'bad response'
-
+                    if services:
+                        # Pretty output result, considering the console encoding
+                        print tabulate(services,
+                                       headers={"caption": "SERVICE CAPTION", "start_mode": "START MODE",
+                                                "state": "STATE"}).encode(sys.stdout.encoding, errors='replace')
 
 
 if __name__ == "__main__":
