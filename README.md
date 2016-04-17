@@ -1,7 +1,7 @@
 # Service Explorer
 
 ## Description
-The main project goal is to create service that exposes RESTful API to retrieve all the Windows Services for given machine, and a console client that uses this service and displays results to user.
+The project goal is to create service that exposes RESTful API to retrieve all the Windows Services for given machine, and a console client that uses this service and displays the results to user.
 
 ### Server
 The server is powered by Bottle Web framework that allows to implement RESTful APIs easily.
@@ -12,6 +12,12 @@ According to requirements, the server exposes a single API `/services`, and retu
 ### Client
 The client is a simple console application that prompts user to enter the required information: IP address of the target machine and user credentials for authentication.
 The client sends the provided data in JSON format within GET request to `/services` API.
+
+## Installation and Running
+In addition to the project code, it is necessary to install the 3rd party packages mentioned in Dependencies section of this doc.
+
+The `server_app.py` and `client_app.py` in the project root directory are the server and client entry point modules, respectively.
+Look at the Configuration section for details.
 
 ## Configuration
 Both client and server are configured by command line arguments.
