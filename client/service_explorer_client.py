@@ -1,9 +1,8 @@
-import sys
 import json
 import requests
-
 from client.data_model import ListServicesRequestData, ClientConfiguration
 from common.errors import *
+
 
 # Client
 class ServiceExplorerClient:
