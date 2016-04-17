@@ -1,6 +1,6 @@
 import json
 from bottle import request, route, run, BottleException, abort
-from data_model import ServerConfiguration
+from server_configuration import ServerConfiguration
 from common.errors import *
 import wmi_helper
 

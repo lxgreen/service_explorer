@@ -5,7 +5,7 @@ import requests
 from client.data_model import ListServicesRequestData, ClientConfiguration
 from common.errors import *
 
-
+# Client
 class ServiceExplorerClient:
     # Encapsulates the const Web API info that does not change from request to request.
     # ATM, there is only one request type -- to list all the services.
@@ -20,7 +20,7 @@ class ServiceExplorerClient:
             raise InvalidConfigurationError('invalid client configuration')
         self.configuration = client_configuration
 
-    # "Private" method to request server in uniform way
+    # "Private" method to request server uniformly
     def _request_server(self, request_data, api_name):
         request_settings = ServiceExplorerClient._request_settings[api_name]
         if request_settings:

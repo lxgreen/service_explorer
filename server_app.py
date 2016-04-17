@@ -1,6 +1,6 @@
 import argparse
 import sys
-from server.data_model import ServerConfiguration
+from server.server_configuration import ServerConfiguration
 from server.service_explorer_server import ServiceExplorerServer
 from common.errors import *
 

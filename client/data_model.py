@@ -2,6 +2,8 @@ import common.utils as utils
 from common.errors import InvalidConfigurationError
 
 
+# Represents client configuration.
+# Validates input, exposes server URL string
 class ClientConfiguration:
     MAX_PORT = (1 << 16) - 1
 
@@ -16,6 +18,7 @@ class ClientConfiguration:
 
 
 # Represents the list services request dynamic data.
+# Validates input, exposes a dictionary ready for json serialization
 class ListServicesRequestData:
     def __init__(self, user_name, password, ip_address):
         if not utils.is_valid_ip_address(ip_address):
