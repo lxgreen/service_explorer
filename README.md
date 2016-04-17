@@ -4,7 +4,7 @@
 The project goal is to create service that exposes RESTful API to retrieve all the Windows Services for given machine, and a console client that uses this service and displays the results to user.
 
 ### Server
-The server is powered by Bottle Web framework that allows to implement RESTful APIs easily.
+The server is powered by the Bottle Web framework that allows to implement RESTful APIs easily.
 The server backend is based on wmi module for Service querying.
 
 According to requirements, the server exposes a single API `/services`, and returns the Service list in JSON format.
