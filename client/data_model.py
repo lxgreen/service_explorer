@@ -1,6 +1,7 @@
 import common.utils as utils
 from common.errors import InvalidConfigurationError
 
+
 class ClientConfiguration:
     MAX_PORT = (1 << 16) - 1
 
@@ -13,6 +14,7 @@ class ClientConfiguration:
             raise InvalidConfigurationError('invalid protocol')
         self.server_url = "{0}://{1}:{2}".format(protocol, server_ip_address, server_port)
 
+
 # Represents the list services request dynamic data.
 class ListServicesRequestData:
     def __init__(self, user_name, password, ip_address):
@@ -22,6 +24,7 @@ class ListServicesRequestData:
             raise InvalidConfigurationError('invalid user name')
         elif password == "":
             raise InvalidConfigurationError('invalid password')
-        self.payload  = {"user_name": user_name,
-                         "password": password,
-                         "ip_address": ip_address}
+        self.payload = {"user_name": user_name,
+                        "password": password,
+                        "ip_address": ip_address
+                        }

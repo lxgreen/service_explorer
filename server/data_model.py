@@ -1,6 +1,7 @@
 import common.utils as utils
 from common.errors import InvalidConfigurationError
 
+
 class ServerConfiguration:
     MAX_PORT = (1 << 16) - 1
 

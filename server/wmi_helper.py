@@ -1,5 +1,4 @@
 import wmi
-from common.errors import ServiceExplorerRuntimeError
 
 
 def get_machine_services(ip_address, user_name, password):

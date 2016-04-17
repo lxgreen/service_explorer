@@ -4,6 +4,7 @@ from server.data_model import ServerConfiguration
 from server.service_explorer_server import ServiceExplorerServer
 from common.errors import *
 
+
 def main():
     # Get port number from command line
     parser = argparse.ArgumentParser(description='Service Explorer Server')
