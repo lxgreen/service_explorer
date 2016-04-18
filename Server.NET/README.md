@@ -4,6 +4,8 @@
 The project goal is to create service that exposes RESTful API to retrieve all the Windows Services for given machine.
 
 ## Implementation details
+The project is based on .NET Framework 4.5. 
+
 The server is powered by the ASP.NET Web API component. To simplify deployment, it uses [OWIN](http://owin.org/) SelfHost package that allows to integrate the Web API into a console application rather than to host it on IIS.
 
 The service consists of the following components:
